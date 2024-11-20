@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="icon" type="image/x-icon" href="media/icon.png" />
+  <title>Definition</title>
+</head>
+<body>
+  <div class="definition-container">
+    <!-- Word and pronunciation -->
+    <div class="word-header">
+      <h1>Chase The Bag</h1>
+      <p class="phonetic">/tʃeɪs ðə bæg/</p>
+    </div>
+    <!-- Part of speech -->
+    <p class="part-of-speech">noun</p>
+    <!-- Definition -->
+    <div class="definition-body">
+      <p class="definition-text">
+        a pursuit of wealth and success
+      </p>
+      
+      <p class="example">"Bro, we gotta chase the bag"</p>
+      
+      <p class="simmilar">Similar: 
+        <span><span class="rectangle" id="run-it-up">Run it up</span></span>
+        <span><span class="rectangle" id="stack-24s">Stack 24's</span></span>
+        <span><span class="rectangle" id="eat">Eat</span></span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Define the required sequence (2, 3, 1, 2)
+    const requiredSequence = [2, 3, 1, 2];
+    let currentSequence = [];
+
+    // Select elements for each phrase
+    const runItUpBtn = document.getElementById("run-it-up");
+    const stack24sBtn = document.getElementById("stack-24s");
+    const eatBtn = document.getElementById("eat");
+
+    // Function to check if the sequence matches
+    function checkForAccess() {
+      if (currentSequence.length === requiredSequence.length) {
+        // Check if the current sequence matches the required one
+        if (currentSequence.every((value, index) => value === requiredSequence[index])) {
+          // Set a flag in localStorage to indicate the user passed the sequence
+          localStorage.setItem('accessGranted', 'true');
+          window.location.href = "access.html";  // Redirect to access.html
+        } else {
+          // Reset the sequence if it's incorrect
+          currentSequence = [];
+        }
+      }
+    }
+
+    // Event listeners for each phrase click
+    runItUpBtn.addEventListener("click", () => {
+      currentSequence.push(1); // Run it up = 1
+      checkForAccess();  // Check after each click
+    });
+
+    stack24sBtn.addEventListener("click", () => {
+      currentSequence.push(2); // Stack 24's = 2
+      checkForAccess();  // Check after each click
+    });
+
+    eatBtn.addEventListener("click", () => {
+      currentSequence.push(3); // Eat = 3
+      checkForAccess();  // Check after each click
+    });
+  </script>
+</body>
+</html>

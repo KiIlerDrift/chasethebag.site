@@ -1,0 +1,271 @@
+body {
+    background-color: #000;
+    color: #00FF19;
+    font-family: courier, courier new, serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .password-container {
+    display: inline-flex;
+    background-color: transparent;
+    border: none;
+    padding: 2px 5px;
+  }
+  
+  #sipassword {
+    background-color: transparent;
+    border: none;
+    color: #00FF19;
+    font-weight: bold;
+    margin: 0; 
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    outline: none;
+    width: 100px;
+    padding: 1px 2px; /* Corrected the padding syntax */
+    text-align: center; /* Center-align the text */
+  }
+  
+  
+  button {
+    background-color: #00FF19;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px; /* Add margin for spacing */
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #00cc16;
+  }
+  
+  /* Video container styling */
+  #video-container {
+    margin-top: 20px; /* Add margin for spacing */
+  }
+  
+  #incorrect-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Change background color to transparent */
+    display: none; /* Initially hidden */
+    z-index: 9998; /* Ensure it's below the video player */
+  }
+  
+  
+  #incorrect-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 80px;
+    border: 2px solid red;
+    background-color: transparent;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px; /* Center the text vertically */
+    display: none; /* Initially hidden */
+  }
+  
+  /* Additional CSS for the granted message */
+  #granted-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Initially hidden */
+    z-index: 9999; /* Set a high z-index value to ensure it covers other elements */
+  }
+  
+  #granted-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 80px;
+    border: 2px solid #00FF19;
+    background-color: transparent;
+    color: #00FF19;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px; /* Center the text vertically */
+    display: none; /* Initially hidden */
+  }
+  
+  /* Hide the video container initially */
+  #video-container {
+    display: none; /* Hide the video container initially */
+  }
+  
+  
+  /* Additional CSS for the accessing message */
+  #accessing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Initially hidden */
+    z-index: 9999; /* Set a high z-index value to ensure it covers other elements */
+  }
+  
+  #accessing-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 120px;
+    border: 2px solid #00FF19;
+    background-color: transparent;
+    color: #00FF19;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 55px;
+  }
+  
+  #accessing-loading-bar {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #00FF19;
+    background-color: black;
+    margin: 0 auto;
+  }
+  
+  #progressBar {
+    width: 0%;
+    height: 100%;
+    background-color: #00FF19;
+  }
+  
+  #accessing-loading-percentage {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  /* Additional CSS for game placeholders */
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Additional CSS for game placeholders */
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .game-widget {
+    width: 200px;
+    height: 200px;
+    background-color: #333;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+    user-select: none; /* Make text unselectable */
+  }
+  
+  
+  .game-widget:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+  }
+  
+  .game-widget:hover {
+    animation: hover 0.5s; /* Apply hover animation on hover */
+  }
+  
+  /* Prevent page from scrolling */
+  html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #countdown-timer {
+    font-size: 24px;
+    color: #00FF19;
+    margin-top: 10px;
+  }
+  
+  #game-grid-container {
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    position: fixed; /* Make sure it covers the entire viewport */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Make sure it is above other content */
+  }
+  /* Adjust grid to 4x4 */
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; /* Adjust gap between items */
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px;
+  }
+  
+  /* Adjust game widget size */
+  .game-widget {
+    width: 150px; /* Adjust width for 4x4 grid */
+    height: 150px; /* Adjust height for 4x4 grid */
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+    border: 2px solid #00FF19;
+  }
+  
+  .game-widget:hover {
+    transform: scale(1.05);
+  }
+  
+  .game-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

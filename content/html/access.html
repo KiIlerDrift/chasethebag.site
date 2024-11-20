@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hub</title>
+  <link rel="stylesheet" href="../css/access.css">
+  <link rel="icon" type="image/x-icon" href="media/icon.png">
+</head>
+<body>
+
+  <div class="centered-content">
+    <p id="password-label">Enter Password</p>
+    <span class="password-container" id="password-container"> [ <input type="password" id="sipassword" maxlength="10" autofocus=""> ] </span>
+  </div>
+
+  <!-- Overlay for incorrect message -->
+  <div id="incorrect-overlay">
+    <div id="incorrect-box">ACCESS FAILED</div>
+  </div>
+
+  <div id="granted-overlay">
+    <div id="granted-box">
+      ACCESS GRANTED
+      <div id="countdown-timer"></div>
+    </div>
+  </div>
+
+  <div id="accessing-overlay" style="display: none;">
+    <div id="accessing-box">
+      <div id="accessing-text">Decrypting the files</div>
+      <div id="accessing-loading-bar">
+        <div id="progressBar"></div>
+        <div id="accessing-loading-percentage">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-grid-container">
+    <div class="game-grid">
+      <!-- Game widgets will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <script>
+    // Check if the user has the access granted flag in localStorage
+    if (localStorage.getItem('accessGranted') !== 'true') {
+      // If the flag isn't set, redirect to the homepage (index.html)
+      window.location.href = "index.html";
+    }
+
+    // Optionally, you can remove the flag once the user has accessed the page, so they can't reaccess it directly.
+    // localStorage.removeItem('accessGranted');
+  </script>
+
+  <script src="../js/access.js"></script>
+</body>
+</html>
